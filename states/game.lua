@@ -30,11 +30,17 @@ function m_game:draw()
     Healthbar:Draw()
     CoinCounter:Draw()
     Player:Draw()
+
+    if (os.time() >= Globals.ObjSpdResetTime) then
+        Globals.ObjectSpeed = Globals.DefaultObjSpeed
+        Globals:SetDefaultColour(1,1,1)
+    else
+        Globals:SetDefaultColour(0.7, 0.7, 0.7)
+    end
 end
 
 function m_game:update()
     Player:Regen()
-
     if (Globals.PlayerHP <= 0) then
         Globals.PlayerHP = 0
         deathSfx:play()

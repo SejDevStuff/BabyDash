@@ -19,7 +19,7 @@ end
 function Player:Draw()
     -- handle player anim
     if Player.jumping == false then
-        if (socket.gettime() - lastTextureChange) > 0.04 then
+        if (socket.gettime() - lastTextureChange) > 0.04 * ((Globals.DefaultObjSpeed - Globals.ObjectSpeed) + 1) then
             lastTextureChange = socket.gettime()
             currentTexture = currentTexture + 1
             if currentTexture > 9 then
@@ -32,7 +32,7 @@ function Player:Draw()
     -- jump
     if Player.jumping == false then
         if love.keyboard.isDown("space") then
-            Player.yVel = -10
+            Player.yVel = -10 - (Globals.DefaultObjSpeed - Globals.ObjectSpeed)
             Player.jumping = true
         end
     end

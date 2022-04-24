@@ -3,6 +3,7 @@ local lastObstacleSpawn = 0
 local socket = require 'socket'
 
 local spike = require "objects.spike"
+local tree = require "objects.tree"
 
 local globals = require "globals"
 
@@ -19,6 +20,8 @@ function Obstacle:DrawIfChance()
             local obst = nil
             if obstacle_to_choose == 1 then
                 obst = Spike
+            elseif obstacle_to_choose == 2 then
+                obst = Tree
             end
             if obst ~= nil then
                 local newObstacle = {}

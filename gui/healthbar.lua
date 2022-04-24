@@ -7,5 +7,5 @@ function Healthbar:Draw()
     love.graphics.setFont(normalFont)
     love.graphics.setColor(0,0,0)
     love.graphics.print(Globals.PlayerHP .. " HP", 50, Player.y - 20)
-    love.graphics.setColor(1,1,1)
+    love.graphics.setColor(Globals.DefaultColour.r, Globals.DefaultColour.g, Globals.DefaultColour.b)
 end

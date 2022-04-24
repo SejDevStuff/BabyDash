@@ -18,7 +18,7 @@ You will encounter many entities in this game, here is a quick breakdown of the 
 #### OBSTACLES
 - 🔴 **Crates** - These will slow you down for 2s, will take away 5 HP
 - 🔴 **Snowmen** - These somehow doesn't melt, but will slow you down for 3s, will take away 5 HP
-- 🔴 **Trees** - These will slow you down for 5s, will take away 5 HP
+- 🟢 **Trees** - These will slow you down for 5s, will take away 5 HP
 - 🟢 **Spikes** - These will take away 50 HP
 - 🔴 **Babies** - These will take away 30 HP
 - 🔴 **Birds** - These will take away 20 HP
