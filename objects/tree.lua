@@ -7,7 +7,11 @@ local globals = require "globals"
 function Tree:OnHit()
     self.canSpawn = false
     Globals.ObjectSpeed = 1.5
-    Globals.ObjSpdResetTime = os.time() + 5
+    if (Globals.ObjSpdResetTime > os.time()) then
+        Globals.ObjSpdResetTime = Globals.ObjSpdResetTime + 5
+    else
+        Globals.ObjSpdResetTime = os.time() + 5
+    end
     Globals.PlayerHP = Globals.PlayerHP - 5
     hurtSfx:play()
 end

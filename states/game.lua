@@ -35,6 +35,9 @@ function m_game:draw()
         Globals.ObjectSpeed = Globals.DefaultObjSpeed
         Globals:SetDefaultColour(1,1,1)
     else
+        love.graphics.setColor(0,0,0)
+        love.graphics.print("You're slow for " .. (Globals.ObjSpdResetTime - os.time()) .. "s!", 10,50)
+        love.graphics.setColor(0.7,0.7,0.7)
         Globals:SetDefaultColour(0.7, 0.7, 0.7)
     end
 end

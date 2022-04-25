@@ -4,6 +4,7 @@ local socket = require 'socket'
 
 local spike = require "objects.spike"
 local tree = require "objects.tree"
+local snowman = require "objects.snowman"
 
 local globals = require "globals"
 
@@ -22,6 +23,8 @@ function Obstacle:DrawIfChance()
                 obst = Spike
             elseif obstacle_to_choose == 2 then
                 obst = Tree
+            elseif obstacle_to_choose == 3 then
+                obst = Snowman
             end
             if obst ~= nil then
                 local newObstacle = {}
