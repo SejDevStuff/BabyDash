@@ -23,7 +23,7 @@ Slowing Obstacles primarily slow you down, but they all take away 5 HP
 ##### Hurting Obstacles
 Hurting Obstacles primarily take away health
 - 🟢 **Spikes** - These will take away 50 HP
-- 🔴 **Babies** - These will take away 30 HP
+- 🟢 **Babies** - These will take away 30 HP
 - 🔴 **Birds** - These will take away 20 HP
 
 **Note:** the amount of time you are slowed down stacks up, so if you run into a tree and a snowman, you will be slowed down for a total of 8 seconds.
