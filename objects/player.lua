@@ -1,4 +1,5 @@
 local socket = require 'socket'
+local global = require "globals"
 
 local playerTexture = love.graphics.newImage("assets/gfx/brian_run_1.png")
 local currentTexture = 1
@@ -17,6 +18,11 @@ function Player:Regen()
 end
 
 function Player:Draw()
+
+    if (Globals.ShowHitboxes) then
+        love.graphics.rectangle("fill", 50, Player.y, 36, 64)
+    end
+
     -- handle player anim
     if Player.jumping == false then
         if (socket.gettime() - lastTextureChange) > 0.04 * ((Globals.DefaultObjSpeed - Globals.ObjectSpeed) + 1) then

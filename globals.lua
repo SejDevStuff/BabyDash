@@ -7,7 +7,8 @@ Globals = {
     DefaultObjSpeed = 3,
     ObjSpdResetTime = 0,
     DefaultColour = {r = 0, g = 0, b = 0},
-    PlayerPuzzles = 0
+    PlayerPuzzles = 0,
+    ShowHitboxes = false
 }
 
 function Globals:SetDefaultColour(r, g, b)

@@ -7,6 +7,7 @@ local tree = require "objects.tree"
 local snowman = require "objects.snowman"
 local crate = require "objects.crate"
 local baby = require "objects.baby"
+local bird = require "objects.bird"
 
 local globals = require "globals"
 
@@ -19,7 +20,7 @@ function Obstacle:DrawIfChance()
     if obstacle < 2 then
         if (socket.gettime() - lastObstacleSpawn) > Globals.ObstacleInterval then
             lastObstacleSpawn = socket.gettime()
-            local obstacle_to_choose = math.random(0,10)
+            local obstacle_to_choose = math.random(0,12)
             local obst = nil
             if obstacle_to_choose == 1 then
                 obst = Spike
@@ -31,6 +32,8 @@ function Obstacle:DrawIfChance()
                 obst = Crate
             elseif obstacle_to_choose == 5 then
                 obst = Baby
+            elseif obstacle_to_choose == 6 then
+                obst = Bird
             end
             if obst ~= nil then
                 local newObstacle = {}

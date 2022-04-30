@@ -3,7 +3,7 @@ Util = {}
 function Util:IsTouchingPlayer(x, y)
     local playerX = 50
     local playerY = Player.y
-    if ((x > playerX and x < playerX + 32) and (y > playerY and y < playerY + 64)) then
+    if ((x > playerX+16 and x < playerX + 48) and (y > playerY and y < playerY + 64)) then
         return true
     end
     return false
