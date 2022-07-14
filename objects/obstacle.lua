@@ -59,6 +59,11 @@ function Obstacle:DrawIfChance()
                 obstacle:OnHit()
             end
             if (obstacle.canSpawn) then
+                if (Globals.ShowHitboxes) then
+                    love.graphics.setColor(255,0,0)
+                    love.graphics.rectangle("fill", obstacle.x, obstacle.y, obstacle.w, obstacle.h)
+                    love.graphics.setColor(255,255,255)
+                end
                 obstacle:Draw()
             else
                 table.remove(Obstacles, key)

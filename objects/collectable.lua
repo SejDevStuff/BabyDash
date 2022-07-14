@@ -45,6 +45,11 @@ function Collectable:DrawIfCan()
                 collectable:OnHit()
             end
             if (collectable.canSpawn) then
+                if (Globals.ShowHitboxes) then
+                    love.graphics.setColor(0,0,255)
+                    love.graphics.rectangle("fill", collectable.x, collectable.y, collectable.w, collectable.h)
+                    love.graphics.setColor(255,255,255)
+                end
                 collectable:Draw()
             else
                 table.remove(Collectables, key)

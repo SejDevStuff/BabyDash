@@ -20,7 +20,9 @@ end
 function Player:Draw()
 
     if (Globals.ShowHitboxes) then
-        love.graphics.rectangle("fill", 50, Player.y, 36, 64)
+        love.graphics.setColor(0,255,0)
+        love.graphics.rectangle("fill", 56, Player.y, 42, 64)
+        love.graphics.setColor(255,255,255)
     end
 
     -- handle player anim
