@@ -4,8 +4,10 @@ local hurtSfx = love.audio.newSource("assets/sounds/brianDeath1.mp3", "static")
 
 function Spike:OnHit()
     self.canSpawn = false
-    hurtSfx:play()
-    Globals.PlayerHP = Globals.PlayerHP - 50
+    if Globals.CurrentPowerup ~= 2 then
+        hurtSfx:play()
+        Globals.PlayerHP = Globals.PlayerHP - 50
+    end
 end
 
 function Spike:Draw()

@@ -6,14 +6,16 @@ local globals = require "globals"
 
 function Crate:OnHit()
     self.canSpawn = false
-    Globals.ObjectSpeed = 1.5
-    if (Globals.ObjSpdResetTime > os.time()) then
-        Globals.ObjSpdResetTime = Globals.ObjSpdResetTime + 2
-    else
-        Globals.ObjSpdResetTime = os.time() + 2
+    if Globals.CurrentPowerup ~= 1 then
+        Globals.ObjectSpeed = 1.5
+        if (Globals.ObjSpdResetTime > os.time()) then
+            Globals.ObjSpdResetTime = Globals.ObjSpdResetTime + 2
+        else
+            Globals.ObjSpdResetTime = os.time() + 2
+        end
+        Globals.PlayerHP = Globals.PlayerHP - 5
+        hurtSfx:play()
     end
-    Globals.PlayerHP = Globals.PlayerHP - 5
-    hurtSfx:play()
 end
 
 function Crate:Draw()

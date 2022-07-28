@@ -9,7 +9,11 @@ local lastRegenTime = 0
 Player = {y = love.graphics:getHeight() / 2, yVel = 0, jumping = true}
 
 function Player:Regen()
-    if ((socket.gettime() - lastRegenTime) >= 1) then
+    local timeDiff = 1
+    if Globals.CurrentPowerup == 3 then
+        timeDiff = 0.5
+    end
+    if ((socket.gettime() - lastRegenTime) >= timeDiff) then
         if (Globals.PlayerHP < 70) then
             lastRegenTime = socket.gettime()
             Globals.PlayerHP = Globals.PlayerHP + 1

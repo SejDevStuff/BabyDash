@@ -6,6 +6,7 @@ local util = require "util"
 
 local coin = require "objects.coin"
 local jumppad = require "objects.jumppad"
+local lightbulb = require "objects.lightbulb"
 
 Collectable = {}
 
@@ -16,12 +17,16 @@ function Collectable:DrawIfCan()
     if ((socket.gettime() - lastCollectableSpawn) > Globals.CollectableInterval) then
         lastCollectableSpawn = socket.gettime()
         local collectable = nil
-        local c_to_choose = math.random(0,2)
+        local c_to_choose = math.random(0,4)
         if c_to_choose == 1 then
             collectable = Coin
         elseif c_to_choose == 2 then
             if (math.random(0,5) <= 2) then
                 collectable = JumpPad
+            end
+        elseif c_to_choose == 3 then
+            if (math.random(0,10) <= 3) then
+                collectable = LightBulb
             end
         end
         if collectable ~= nil then

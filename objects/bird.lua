@@ -9,8 +9,10 @@ local hurtSfx = love.audio.newSource("assets/sounds/brianDeath1.mp3", "static")
 
 function Bird:OnHit()
     self.canSpawn = false
-    hurtSfx:play()
-    Globals.PlayerHP = Globals.PlayerHP - 20
+    if Globals.CurrentPowerup ~= 2 then
+        hurtSfx:play()
+        Globals.PlayerHP = Globals.PlayerHP - 20
+    end
 end
 
 function Bird:Draw()

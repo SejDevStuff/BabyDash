@@ -6,14 +6,16 @@ local globals = require "globals"
 
 function Snowman:OnHit()
     self.canSpawn = false
-    Globals.ObjectSpeed = 1.5
-    if (Globals.ObjSpdResetTime > os.time()) then
-        Globals.ObjSpdResetTime = Globals.ObjSpdResetTime + 3
-    else
-        Globals.ObjSpdResetTime = os.time() + 3
+    if Globals.CurrentPowerup ~= 1 then
+        Globals.ObjectSpeed = 1.5
+        if (Globals.ObjSpdResetTime > os.time()) then
+            Globals.ObjSpdResetTime = Globals.ObjSpdResetTime + 3
+        else
+            Globals.ObjSpdResetTime = os.time() + 3
+        end
+        Globals.PlayerHP = Globals.PlayerHP - 5
+        hurtSfx:play()
     end
-    Globals.PlayerHP = Globals.PlayerHP - 5
-    hurtSfx:play()
 end
 
 function Snowman:Draw()

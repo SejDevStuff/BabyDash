@@ -31,6 +31,25 @@ function m_game:draw()
     CoinCounter:Draw()
     Player:Draw()
 
+    if (Globals.CurrentPowerup ~= 0) then
+        love.graphics.setColor(0,0,0)
+        local timeRemaining = Globals.PowerupEnd - os.time()
+        if timeRemaining <= 0 then
+            Globals.CurrentPowerup = 0
+        else
+            if (Globals.CurrentPowerup == 1) then
+                love.graphics.print("Active Powerup: AGILITY (" .. timeRemaining .. "s remaining)", 10,80)
+            end
+            if (Globals.CurrentPowerup == 2) then
+                love.graphics.print("Active Powerup: INVINCIBILITY (" .. timeRemaining .. "s remaining)", 10,80)
+            end
+            if (Globals.CurrentPowerup == 3) then
+                love.graphics.print("Active Powerup: REGENERATION (" .. timeRemaining .. "s remaining)", 10,80)
+            end
+        end
+        love.graphics.setColor(Globals.DefaultColour.r, Globals.DefaultColour.g, Globals.DefaultColour.b)
+    end
+
     if (os.time() >= Globals.ObjSpdResetTime) then
         Globals.ObjectSpeed = Globals.DefaultObjSpeed
         Globals:SetDefaultColour(1,1,1)

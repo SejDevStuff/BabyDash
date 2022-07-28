@@ -33,13 +33,13 @@ Hurting Obstacles primarily take away health
 #### COLLECTABLES
 - 🟢 **Coins** - shiny things you can collect
 - 🔴 **Keys** - Whenever you collect a key, you must complete a puzzle which will appear on the screen to obtain the key. You cannot exit the puzzle without solving it.
-- 🔴 **Lightbulbs** - These can give you powerups
+- 🟢 **Lightbulbs** - These can give you powerups
 
 #### POWERUPS
 All of these powerups can be obtained from getting a Lightbulb, they range from 2 - 8 seconds. You cannot get another powerup if one is already active (i.e: they can't stack)
-- 🔴 **Agility** - This powerup enables you to not get hurt or slowed down by Slowing Obstacles. You will still get hurt by Hurting Obstacles.
-- 🔴 **Invincibility** - This powerup enables you to not get hurt by Hurting Obstacles. You will still get hurt and slowed down by Slowing Obstacles.
-- 🔴 **Regeneration** - This powerup makes you regenerate your health every half a second rather than every second.
+- 🟢 **Agility** - This powerup enables you to not get hurt or slowed down by Slowing Obstacles. You will still get hurt by Hurting Obstacles.
+- 🟢 **Invincibility** - This powerup enables you to not get hurt by Hurting Obstacles. You will still get hurt and slowed down by Slowing Obstacles.
+- 🟢 **Regeneration** - This powerup makes you regenerate your health every half a second rather than every second.
 
 #### OTHER
 - 🟢 **Jump Pad** - These will launch you higher into the air than a normal jump and can help you get over obstacles, but be careful, they can launch you into a bird and that's not good.

@@ -8,7 +8,9 @@ Globals = {
     ObjSpdResetTime = 0,
     DefaultColour = {r = 0, g = 0, b = 0},
     PlayerPuzzles = 0,
-    ShowHitboxes = false
+    ShowHitboxes = false,
+    CurrentPowerup = 0,
+    PowerupEnd = 0
 }
 
 function Globals:SetDefaultColour(r, g, b)
@@ -21,4 +23,6 @@ function Globals:Reset()
     Globals.PlayerHP = 100
     Globals.PlayerCoins = 0
     Globals.PlayerPuzzles = 0
+    Globals.CurrentPowerup = 0
+    Globals.PowerupEnd = 0
 end

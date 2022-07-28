@@ -9,8 +9,10 @@ local hurtSfx = love.audio.newSource("assets/sounds/brianDeath1.mp3", "static")
 
 function Baby:OnHit()
     self.canSpawn = false
-    hurtSfx:play()
-    Globals.PlayerHP = Globals.PlayerHP - 30
+    if Globals.CurrentPowerup ~= 2 then
+        hurtSfx:play()
+        Globals.PlayerHP = Globals.PlayerHP - 30
+    end
 end
 
 function Baby:Draw()
