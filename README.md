@@ -4,6 +4,24 @@ This is a clone of my game "Baby Dash" made in Greenfoot ([link](https://www.gre
 ## Changes from the Greenfoot version
 This version of the game is an endless platformer, where the Greenfoot version has a definite end. I did this because I feel like an endless platformer will be more fun. I may implement a shop feature or maybe a leaderboard later.
 
+## Latest Update: 29/07/2022
+```
+- Improved hitboxes / collision detection
+Hitboxes are now much better and we now have improved collision detection. Press H in game to toggle showing hitboxes.
+
+- Increased player jump height
+Player jump height has been increased slightly to make the game a little bit easier
+
+- Increased bird flying height
+Birds now fly much heigher, so you can no longer jump into birds normally. You can still jump into them using a jumppad.
+(DISCLAIMER!) This change is under review and might be reversed
+
+- Improved collision detection between obstacles and collectables
+Obstacles/Collectables should no longer spawn on top of each other, or disappear randomly (or if this happens, it will be a rare occurrence)
+
+- Fixed drawing issue where the healthbar and the player hitbox will lag slightly behind the player
+```
+
 ## How to play
 **Disclaimer!** this game is not finished so not all of these features exist yet.
 

@@ -50,12 +50,22 @@ function Obstacle:DrawIfChance()
         if obstacle.x < (0 - obstacle.w) then
             table.remove(Obstacles, key)
         else
-            if (Util:IsTouchingObjects(obstacle.x, obstacle.y, obstacle) ~= false and obstacle.canSpawn) then
-                if (Util:IsTouchingObjects(obstacle.x, obstacle.y) == "Obstacle") then
-                    obstacle.canSpawn = false
+            local obstacleHit = false
+            for ox = 0, obstacle.w, 1 do
+                for oy = 0, obstacle.h, 1 do
+                    local obx = obstacle.x + ox
+                    local oby = obstacle.y + oy
+                    if (Util:IsTouchingPlayer(obx, oby) and obstacle.canSpawn) then
+                        obstacleHit = true
+                    end
+                    if (Util:IsTouchingObjects(obx, oby, obstacle) ~= false and obstacle.canSpawn) then
+                        if (Util:IsTouchingObjects(obx, oby) == "Obstacle") then
+                            obstacle.canSpawn = false
+                        end
+                    end
                 end
             end
-            if (Util:IsTouchingPlayer(obstacle.x, obstacle.y) and obstacle.canSpawn) then
+            if (obstacleHit) then
                 obstacle:OnHit()
             end
             if (obstacle.canSpawn) then

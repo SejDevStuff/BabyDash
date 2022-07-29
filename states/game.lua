@@ -6,7 +6,6 @@ local player = require "objects.player"
 local obstacles = require "objects.obstacle"
 local collectables = require "objects.collectable"
 
-local hpbar = require "gui.healthbar"
 local coinCount = require "gui.coincounter"
 
 local deathSfx = love.audio.newSource("assets/sounds/death.wav", "static")
@@ -27,7 +26,6 @@ function m_game:draw()
     Ground:Draw()
     Obstacle:DrawIfChance()
     Collectable:DrawIfCan()
-    Healthbar:Draw()
     CoinCounter:Draw()
     Player:Draw()
 
@@ -67,5 +65,15 @@ function m_game:update()
         Globals.PlayerHP = 0
         deathSfx:play()
         Gamestate.switch(gameOver)
+    end
+end
+
+function m_game:keypressed(key, scancode)
+    if (key == "h") then
+        if (Globals.ShowHitboxes) then
+            Globals.ShowHitboxes = false
+        else
+            Globals.ShowHitboxes = true
+        end
     end
 end

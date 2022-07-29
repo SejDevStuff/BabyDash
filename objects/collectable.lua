@@ -43,10 +43,20 @@ function Collectable:DrawIfCan()
         if collectable.x < (0 - collectable.w) then
             table.remove(Collectables, key)
         else
-            if (Util:IsTouchingObjects(collectable.x, collectable.y, collectable) ~= false and collectable.canSpawn) then
-                collectable.canSpawn = false
+            local collectableHit = false
+            for cx = 0, collectable.w, 1 do
+                for cy = 0, collectable.h, 1 do
+                    local colx = collectable.x + cx
+                    local coly = collectable.y + cy
+                    if (Util:IsTouchingPlayer(colx, coly) and collectable.canSpawn) then
+                        collectableHit = true
+                    end
+                    if (Util:IsTouchingObjects(colx, coly, collectable) ~= false and collectable.canSpawn) then
+                        collectable.canSpawn = false
+                    end
+                end
             end
-            if (Util:IsTouchingPlayer(collectable.x, collectable.y) and collectable.canSpawn) then
+            if (collectableHit) then
                 collectable:OnHit()
             end
             if (collectable.canSpawn) then

@@ -25,4 +25,5 @@ function Globals:Reset()
     Globals.PlayerPuzzles = 0
     Globals.CurrentPowerup = 0
     Globals.PowerupEnd = 0
+    Globals.ShowHitboxes = false
 end

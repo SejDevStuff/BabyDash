@@ -1,9 +1,9 @@
 Util = {}
 
 function Util:IsTouchingPlayer(x, y)
-    local playerX = 50
+    local playerX = 62
     local playerY = Player.y
-    if ((x > playerX+16 and x < playerX + 48) and (y > playerY and y < playerY + 64)) then
+    if ((x > playerX and x < playerX + 36) and (y > playerY and y < playerY + 64)) then
         return true
     end
     return false
@@ -12,8 +12,8 @@ end
 function Util:IsTouchingObjects(x, y, obj)
     for key, value in pairs(Obstacles) do
         local o = value
-        if (o.x >= x-(o.w+10) and o.x <= x+(o.w+10)) then
-            if (o.y >= y-(o.h+10) and o.y <= y+(o.h+10)) then
+        if (o.x > x-o.w and o.x < x+o.w) then
+            if (o.y > y-o.h and o.y < y+o.h) then
                 if (o ~= obj) then
                     return "Obstacle"
                 end
@@ -22,8 +22,8 @@ function Util:IsTouchingObjects(x, y, obj)
     end
     for key, value in pairs(Collectables) do
         local o = value
-        if (o.x >= x-(o.w+10) and o.x <= x+(o.w+10)) then
-            if (o.y >= y-(o.h+10) and o.y <= y+(o.h+10)) then
+        if (o.x > x-o.w and o.x < x+o.w) then
+            if (o.y > y-o.h and o.y < y+o.h) then
                 if (o ~= obj) then
                     return "Collectable"
                 end

@@ -1,4 +1,4 @@
-Bird = {x = love.graphics:getWidth() - 36, y = love.graphics:getHeight() - (36 * 5), w = 36, h = 36, canSpawn = true}
+Bird = {x = love.graphics:getWidth() - 36, y = love.graphics:getHeight() - (36 * 8), w = 36, h = 36, canSpawn = true}
 
 local tex = love.graphics.newImage("assets/gfx/birdflap1.png")
 local lastTexChange = 0

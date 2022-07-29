@@ -1,5 +1,6 @@
 local socket = require 'socket'
-local global = require "globals"
+local hpbar = require "gui.healthbar"
+local globals = require "globals"
 
 local playerTexture = love.graphics.newImage("assets/gfx/brian_run_1.png")
 local currentTexture = 1
@@ -22,13 +23,6 @@ function Player:Regen()
 end
 
 function Player:Draw()
-
-    if (Globals.ShowHitboxes) then
-        love.graphics.setColor(0,255,0)
-        love.graphics.rectangle("fill", 56, Player.y, 42, 64)
-        love.graphics.setColor(255,255,255)
-    end
-
     -- handle player anim
     if Player.jumping == false then
         if (socket.gettime() - lastTextureChange) > 0.04 * ((Globals.DefaultObjSpeed - Globals.ObjectSpeed) + 1) then
@@ -44,7 +38,7 @@ function Player:Draw()
     -- jump
     if Player.jumping == false then
         if love.keyboard.isDown("space") then
-            Player.yVel = -10 - (Globals.DefaultObjSpeed - Globals.ObjectSpeed)
+            Player.yVel = -12 - (Globals.DefaultObjSpeed - Globals.ObjectSpeed)
             Player.jumping = true
         end
     end
@@ -61,6 +55,16 @@ function Player:Draw()
         Player.y = love.graphics:getHeight() - (36+64)
         Player.jumping = false
     end
+
+    -- draw hitbox
+    if (Globals.ShowHitboxes) then
+        love.graphics.setColor(0,255,0)
+        love.graphics.rectangle("fill", 62, Player.y, 36, 64)
+        love.graphics.setColor(255,255,255)
+    end
+
+    -- draw hp bar
+    Healthbar:Draw()
 
     -- draw player
     love.graphics.draw(playerTexture, love.graphics.newQuad(0, 0, 64, 64, 64, 64), 50, Player.y)
